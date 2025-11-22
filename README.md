@@ -3,90 +3,117 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Love ❤️</title>
+<title>Romantic Page</title>
 <style>
-body, html{margin:0;height:100%;overflow:hidden;font-family:sans-serif;background:black;color:white;text-align:center;transition:background 0.8s;}
-.wrap{height:100%;display:flex;align-items:center;justify-content:center;position:relative;}
-.hearts{pointer-events:none;position:absolute;inset:0;}
-.heart{position:absolute;font-size:20px;color:red;animation:float 5s linear infinite;}
-@keyframes float{0%{transform:translateY(100vh);opacity:1}100%{transform:translateY(-10vh);opacity:0}}
-.card{padding:20px;background:rgba(0,0,0,0.3);border-radius:15px;}
-.title3d{font-size:36px;font-weight:bold;margin-top:40px;text-shadow: 3px 3px 10px #ff69b4, -3px -3px 10px #ff1493; cursor:pointer; user-select:none;}
-.message{margin-top:20px;font-size:20px;opacity:0;transition:all 0.4s;line-height:1.5;text-align:center;}
-.message.show{opacity:1;}
-.progress{margin-top:10px;font-size:16px;color:#ffcc00;}
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #ffdde1, #ee9ca7);
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    perspective: 1000px;
+  }
+  #message {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    color: #ff4d6d;
+    text-shadow: 2px 2px 10px #fff, -2px -2px 10px #ffb6c1;
+    transform: rotateY(0deg);
+    transition: transform 0.5s;
+    cursor: pointer;
+  }
+  .hearts {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: url('https://i.imgur.com/O6U7K6H.png') no-repeat center center / cover;
+    pointer-events: none;
+    animation: floatUp linear infinite;
+  }
+  @keyframes floatUp {
+    0% {transform: translateY(100vh) scale(0.5); opacity:1;}
+    100% {transform: translateY(-10vh) scale(1); opacity:0;}
+  }
+  .cartoon {
+    position: absolute;
+    width: 80px;
+    animation: floatCartoon linear infinite;
+  }
+  @keyframes floatCartoon {
+    0% {left:-100px; transform: rotate(0deg);}
+    50% {left:50vw; transform: rotate(360deg);}
+    100% {left:110vw; transform: rotate(720deg);}
+  }
 </style>
 </head>
 <body>
-<div class="wrap" id="wrap">
-  <div class="hearts" id="hearts"></div>
-  <div class="card" id="card">
-    <div id="title" class="title3d">Tap to Show Message ❤️</div>
-    <div id="message" class="message"></div>
-    <div class="progress" id="progress">1 / 10</div>
-  </div>
-</div>
 
-<!-- Embedded Background Music -->
-<audio id="bgMusic" autoplay loop>
-  <source src="data:audio/mpeg;base64,//uQxAAAAAAAAAAAAAAAAAAAAAA..." type="audio/mpeg">
+<audio id="bgMusic" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
 </audio>
 
-<script>
-const bgMusic = document.getElementById('bgMusic');
-const title = document.getElementById('title');
-const message = document.getElementById('message');
-const progress = document.getElementById('progress');
-const wrap = document.getElementById('wrap');
-const hearts = document.getElementById('hearts');
+<div id="message">Tap me sweetheart 💖</div>
 
-const slides=[
-{title:"❤️ 1. Why She’s Special to You", text:"You’re not just another person in my life… you’re the one who feels meant for me.<br>Something in you fits perfectly in places I didn’t even know were empty."},
-{title:"❤️ 2. Why She’s Important", text:"You matter to me in ways I can’t replace.<br>My day feels incomplete if even a single moment passes without you in it."},
-{title:"❤️ 3. Why Only She Stands Out", text:"Other people exist, but you stand out without trying.<br>Your presence has a purity and peace no one else carries."},
-{title:"❤️ 4. Why You Love Only Her", text:"My heart chose you without hesitation, without confusion.<br>It’s not a decision… it’s a feeling that keeps pulling me back to you."},
-{title:"❤️ 5. Why You Imagine a Life With Her", text:"When I think of the future, your name naturally appears in it.<br>Not because I forced it… but because loving you feels like the right place to stay."},
-{title:"❤️ 6. Why She’s Your Everything", text:"I don’t need a thousand people around me — just you.<br>You’re the peace, the comfort, the smile, and the home my heart returns to."},
-{title:"❤️ 7. Why Your Love Never Decreases", text:"My love for you doesn’t fade with time… it deepens.<br>The more I know you, the more reasons my heart finds to stay."},
-{title:"❤️ 8. Why You Love Her As She Is", text:"I adore you exactly the way you are — every flaw, every softness.<br>You don’t need to change; you’re already everything I prayed for quietly."},
-{title:"❤️ 9. Why You Feel Safe With Her", text:"You’re the only person who gets my silence, my chaos, and my softness.<br>With you, even my unspoken emotions feel understood."},
-{title:"❤️ 10. Why She’s Enough for You", text:"I don’t look for anyone else because my heart doesn’t wander.<br>It has already found its place — and that place is you."}
+<script>
+const messages = [
+"Tap me sweetheart 💖",
+"❤️ 1. Why She’s Special to You: “You’re not just another person in my life… you’re the one who feels meant for me. Something in you fits perfectly in places I didn’t even know were empty.”",
+"❤️ 2. Why She’s Important: “You matter to me in ways I can’t replace. My day feels incomplete if even a single moment passes without you in it.”",
+"❤️ 3. Why Only She Stands Out: “Other people exist, but you stand out without trying. Your presence has a purity and peace no one else carries.”",
+"❤️ 4. Why You Love Only Her: “My heart chose you without hesitation, without confusion. It’s not a decision… it’s a feeling that keeps pulling me back to you.”",
+"❤️ 5. Why You Imagine a Life With Her: “When I think of the future, your name naturally appears in it. Not because I forced it… but because loving you feels like the right place to stay.”",
+"❤️ 6. Why She’s Your Everything: “I don’t need a thousand people around me — just you. You’re the peace, the comfort, the smile, and the home my heart returns to.”",
+"❤️ 7. Why Your Love Never Decreases: “My love for you doesn’t fade with time… it deepens. The more I know you, the more reasons my heart finds to stay.”",
+"❤️ 8. Why You Love Her As She Is: “I adore you exactly the way you are — every flaw, every softness. You don’t need to change; you’re already everything I prayed for quietly.”",
+"❤️ 9. Why You Feel Safe With Her: “You’re the only person who gets my silence, my chaos, and my softness. With you, even my unspoken emotions feel understood.”",
+"❤️ 10. Why She’s Enough for You: “I don’t look for anyone else because my heart doesn’t wander. It has already found its place — and that place is you.”",
+"So I love you 💖"
 ];
 
-let idx = 0;
+let index = 0;
+const messageDiv = document.getElementById('message');
+const bgMusic = document.getElementById('bgMusic');
 
-// Show slide on tap
-title.addEventListener('click', ()=>{
-  showSlide(idx);
-  idx++;
-});
-
-function showSlide(i){
-  if(i>=slides.length){
-    message.innerHTML="All lines read ❤️";
-    message.classList.add('show');
-    progress.innerHTML=slides.length+" / "+slides.length;
-    return;
-  }
-  wrap.style.background = `linear-gradient(135deg, hsl(${i*36},70%,10%), hsl(${i*36},50%,20%))`;
-  title.textContent = slides[i].title;
-  message.innerHTML = slides[i].text;
-  message.classList.add('show');
-  progress.innerHTML=(i+1)+" / "+slides.length;
-  createHearts();
-}
-
-function createHearts(){
-  for(let j=0;j<12;j++){
-    let h=document.createElement('div');
-    h.className='heart';
-    h.innerHTML='❤️';
-    h.style.left=Math.random()*100+'vw';
-    h.style.fontSize=(20+Math.random()*30)+'px';
-    hearts.appendChild(h);
-    setTimeout(()=>h.remove(),5000);
+function nextMessage() {
+  if(index === 0) { bgMusic.play().catch(()=>{}); } // Play music on first tap
+  if(index < messages.length - 1){
+    index++;
+    messageDiv.textContent = messages[index];
+    messageDiv.style.transform = `rotateY(${Math.random()*20-10}deg)`;
   }
 }
+document.body.addEventListener('click', nextMessage);
+
+// Hearts particles
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.className = 'hearts';
+  heart.style.left = Math.random()*100 + 'vw';
+  heart.style.animationDuration = (Math.random()*5 + 5) + 's';
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(), 6000);
+}
+setInterval(createHeart, 300);
+
+// Cartoon animations
+const cartoonImages = [
+  "https://i.imgur.com/Jd8TtXb.png", // Doramon
+  "https://i.imgur.com/fpFTnsH.png"  // Ninja Hattori
+];
+function createCartoon() {
+  const c = document.createElement('img');
+  c.src = cartoonImages[Math.floor(Math.random()*cartoonImages.length)];
+  c.className = 'cartoon';
+  c.style.top = (Math.random()*70 + 10) + 'vh';
+  c.style.animationDuration = (Math.random()*10 + 10)+'s';
+  document.body.appendChild(c);
+  setTimeout(()=>c.remove(), 12000);
+}
+setInterval(createCartoon, 5000);
 </script>
+
 </body>
 </html>
